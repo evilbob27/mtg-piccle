@@ -1,22 +1,28 @@
+:root {
+  --darkgrey: #444444;
+  --grey: #C2C2C2;
+  --lightblack: #232323;
+}
+
 @font-face {
   font-family: 'Beleren';
-  src: url('/Beleren-Bold.ttf') format('truetype');
+  src: url('/fonts/Beleren-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
 body {
-  background: url('Gray-Patterned-BG.jpg');
+  background: url('/images/grey-patterned-bg.jpg');
   color: whitesmoke;
   font-family: 'Beleren', sans-serif;
   font-weight: bold;
   margin: 0rem;
 }
 
-header {
+h1 {
   border-bottom: 1px solid grey;
   font-size: 3rem;
-  padding: .5rem 0rem .5rem 0rem;
+  padding: .5rem 0rem;
   text-align: center;
 }
 
@@ -25,12 +31,12 @@ header {
   border-radius: 1.5rem;
   padding: .5rem;
   margin: 1rem;
-  width: 25rem;
+  width: 22rem;
 }
 
 .life-counter {
-  background-color: #111111;
-  border: .25rem solid #444444;
+  background-color: var(--lightblack);
+  border: .25rem solid var(--darkgrey);
   border-radius: 2rem;
   font-size: 2.5rem;
   margin: 0;
@@ -48,16 +54,17 @@ header {
 }
 
 .profile-picture {
-  margin-bottom: -1rem;
-  padding-top: 2rem;
+  margin-bottom:-1rem;
+  padding: 2rem 0rem 0rem;
   width: 20rem;
 }
 
 .search-bar {
-  background-color: lightgrey;
-  color: #111111;
+  background-color: var(--grey);
+  color: var(--lightblack);
   font-family: 'Beleren', sans-serif;
   height: 2rem;
   margin-bottom: -.75rem;
+  /* TODO: change to use padding */
   width: 20rem;
 }
