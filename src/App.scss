@@ -1,8 +1,7 @@
-:root {
-    --darkgrey: #444444;
-    --grey: #c2c2c2;
-    --lightblack: #232323;
-}
+$darkgrey: #444444;
+$grey: #c2c2c2;
+$lightblack: #232323;
+$grey-border: 1px solid grey;
 
 @font-face {
     font-family: "Beleren";
@@ -20,14 +19,16 @@ body {
 }
 
 h1 {
-    border-bottom: 1px solid grey;
+    border-bottom: $grey-border;
+    display: flex;
+    flex-direction: column;
     font-size: 3rem;
-    padding: 0.5rem 0rem;
-    text-align: center;
+    padding: 1.5rem 0rem;
+    place-items: center center;
 }
 
 .card {
-    border: 1px solid grey;
+    border: $grey-border;
     border-radius: 1.5rem;
     padding: 0.5rem;
     margin: 1rem;
@@ -35,8 +36,8 @@ h1 {
 }
 
 .life-counter {
-    background-color: var(--lightblack);
-    border: 0.25rem solid var(--darkgrey);
+    background-color: $lightblack;
+    border: 0.25rem solid $darkgrey;
     border-radius: 2rem;
     font-size: 2.5rem;
     margin: 0;
@@ -60,8 +61,8 @@ h1 {
 }
 
 .search-bar {
-    background-color: var(--grey);
-    color: var(--lightblack);
+    background-color: $grey;
+    color: $lightblack;
     font-family: "Beleren", sans-serif;
     height: 2rem;
     margin-bottom: -0.75rem;
