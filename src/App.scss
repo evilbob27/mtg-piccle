@@ -27,45 +27,48 @@ h1 {
     place-items: center center;
 }
 
-.card {
-    border: $grey-border;
-    border-radius: 1.5rem;
-    padding: 0.5rem;
-    margin: 1rem;
-    width: 22rem;
-}
-
-.life-counter {
-    background-color: $lightblack;
-    border: 0.25rem solid $darkgrey;
-    border-radius: 2rem;
-    font-size: 2.5rem;
-    margin: 0;
-    padding: 0.25rem 1rem;
-    position: relative;
-    text-align: center;
-    z-index: 10;
-}
-
 .main-section {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
 
-.profile-picture {
-    margin-bottom: -1rem;
-    padding: 2rem 0rem 0rem;
-    width: 20rem;
-}
+    .card {
+        border: $grey-border;
+        border-radius: 1.5rem;
+        padding: 0.5rem;
+        margin: 2rem 0rem 1rem;
+        width: 22rem;
+    }
 
-.search-bar {
-    background-color: $grey;
-    color: $lightblack;
-    font-family: "Beleren", sans-serif;
-    height: 2rem;
-    margin-bottom: -0.75rem;
-    /* TODO: change to use padding */
-    width: 20rem;
+    .search-bar {
+        background-color: $grey;
+        color: $lightblack;
+        font-family: "Beleren", sans-serif;
+        height: 2rem;
+        margin-bottom: -0.75rem;
+        /* TODO: change to use padding */
+        width: 20rem;
+    }
+
+    .player-section {
+        padding-top: 2rem;
+        
+        .profile-picture {
+            margin-bottom: -1rem;
+            padding: 2rem 0rem 0rem;
+            width: 20rem;
+        }
+
+        .life-counter {
+            background-color: $lightblack;
+            border: 0.25rem solid $darkgrey;
+            border-radius: 2rem;
+            font-size: 2.5rem;
+            margin: 0;
+            padding: 0.25rem 1rem;
+            position: relative;
+            text-align: center;            
+        }
+    }
 }
