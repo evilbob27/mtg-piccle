@@ -1,0 +1,70 @@
+:root {
+    --darkgrey: #444444;
+    --grey: #c2c2c2;
+    --lightblack: #232323;
+}
+
+@font-face {
+    font-family: "Beleren";
+    src: url("/fonts/Beleren-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    background: url("/images/grey-patterned-bg.jpg");
+    color: whitesmoke;
+    font-family: "Beleren", sans-serif;
+    font-weight: bold;
+    margin: 0rem;
+}
+
+h1 {
+    border-bottom: 1px solid grey;
+    font-size: 3rem;
+    padding: 0.5rem 0rem;
+    text-align: center;
+}
+
+.card {
+    border: 1px solid grey;
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    width: 22rem;
+}
+
+.life-counter {
+    background-color: var(--lightblack);
+    border: 0.25rem solid var(--darkgrey);
+    border-radius: 2rem;
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 0.25rem 1rem;
+    position: relative;
+    text-align: center;
+    z-index: 10;
+}
+
+.main-section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-picture {
+    margin-bottom: -1rem;
+    padding: 2rem 0rem 0rem;
+    width: 20rem;
+}
+
+.search-bar {
+    background-color: var(--grey);
+    color: var(--lightblack);
+    font-family: "Beleren", sans-serif;
+    height: 2rem;
+    margin-bottom: -0.75rem;
+    /* TODO: change to use padding */
+    width: 20rem;
+}
