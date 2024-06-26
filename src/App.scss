@@ -2,6 +2,10 @@ $darkgrey: #444444;
 $grey: #c2c2c2;
 $lightblack: #232323;
 $grey-border: 1px solid grey;
+$font-l: 3rem;
+$font-m: 2.5rem;
+$font-xl: 4rem;
+
 
 @font-face {
     font-family: "Beleren";
@@ -22,7 +26,7 @@ h1 {
     border-bottom: $grey-border;
     display: flex;
     flex-direction: column;
-    font-size: 3rem;
+    font-size: $font-l;
     padding: 1.5rem 0rem;
     place-items: center center;
 }
@@ -64,11 +68,11 @@ h1 {
             background-color: $lightblack;
             border: 0.25rem solid $darkgrey;
             border-radius: 2rem;
-            font-size: 2.5rem;
+            font-size: $font-m;
             margin: 0;
             padding: 0.25rem 1rem;
             position: relative;
-            text-align: center;            
+            text-align: center;
         }
     }
 }
@@ -76,6 +80,6 @@ h1 {
 .game-over {
     background-color: $lightblack;
     color: red;
-    font-size: 4rem;
+    font-size: $font-xl;
     position: absolute;
 }
