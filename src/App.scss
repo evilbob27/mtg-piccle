@@ -1,8 +1,11 @@
-:root {
-    --darkgrey: #444444;
-    --grey: #c2c2c2;
-    --lightblack: #232323;
-}
+$darkgrey: #444444;
+$grey: #c2c2c2;
+$lightblack: #232323;
+$grey-border: 1px solid grey;
+$font-l: 3rem;
+$font-m: 2.5rem;
+$font-xl: 4rem;
+
 
 @font-face {
     font-family: "Beleren";
@@ -20,30 +23,12 @@ body {
 }
 
 h1 {
-    border-bottom: 1px solid grey;
-    font-size: 3rem;
-    padding: 0.5rem 0rem;
-    text-align: center;
-}
-
-.card {
-    border: 1px solid grey;
-    border-radius: 1.5rem;
-    padding: 0.5rem;
-    margin: 1rem;
-    width: 22rem;
-}
-
-.life-counter {
-    background-color: var(--lightblack);
-    border: 0.25rem solid var(--darkgrey);
-    border-radius: 2rem;
-    font-size: 2.5rem;
-    margin: 0;
-    padding: 0.25rem 1rem;
-    position: relative;
-    text-align: center;
-    z-index: 10;
+    border-bottom: $grey-border;
+    display: flex;
+    flex-direction: column;
+    font-size: $font-l;
+    padding: 1.5rem 0rem;
+    place-items: center center;
 }
 
 .main-section {
@@ -51,20 +36,50 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    .card {
+        border: $grey-border;
+        border-radius: 1.5rem;
+        padding: 0.5rem;
+        margin: 2rem 0rem 1rem;
+        width: 22rem;
+    }
+
+    .search-bar {
+        background-color: $grey;
+        color: $lightblack;
+        font-family: "Beleren", sans-serif;
+        height: 2rem;
+        margin-bottom: -0.75rem;
+        /* TODO: change to use padding */
+        width: 20rem;
+    }
+
+    .player-section {
+        padding-top: 2rem;
+
+        .profile-picture {
+            margin-bottom: -1rem;
+            padding: 2rem 0rem 0rem;
+            width: 20rem;
+        }
+
+        .life-counter {
+            background-color: $lightblack;
+            border: 0.25rem solid $darkgrey;
+            border-radius: 2rem;
+            font-size: $font-m;
+            margin: 0;
+            padding: 0.25rem 1rem;
+            position: relative;
+            text-align: center;
+        }
+    }
 }
 
-.profile-picture {
-    margin-bottom: -1rem;
-    padding: 2rem 0rem 0rem;
-    width: 20rem;
-}
-
-.search-bar {
-    background-color: var(--grey);
-    color: var(--lightblack);
-    font-family: "Beleren", sans-serif;
-    height: 2rem;
-    margin-bottom: -0.75rem;
-    /* TODO: change to use padding */
-    width: 20rem;
+.game-over {
+    background-color: $lightblack;
+    color: red;
+    font-size: $font-xl;
+    position: absolute;
 }
