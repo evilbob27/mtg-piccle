@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function MainSection() {
     const [life, setLife] = useState(20);
     const [showLostGameModal, setShowLostGameModal] = useState(false);
+    const [grid, setGrid] = useState([]);
+    
     const guessCard = () => {
         setLife(life => {
             const newLife = life - 4;
@@ -14,6 +16,18 @@ export default function MainSection() {
         });
     };
 
+    useEffect(() => {
+        const generateGrid = () => {
+            const newGrid = [];
+            for (let i = 0; i < 20; i++) {
+                newGrid.push(<div key={i} className="square overlay-square"></div>);
+            }
+            setGrid(newGrid);
+        };
+
+        generateGrid();
+    }, []);
+
     return (
         <section className="main-section">
 			<article className="card-area">
@@ -23,6 +37,7 @@ export default function MainSection() {
 					<div className="square"></div>
 					<div className="square"></div>
 					<div className="square"></div>
+                    {grid}
 				</div>
 			</article>
             <input className="search-bar" type="search" placeholder="Search Card..."></input>
