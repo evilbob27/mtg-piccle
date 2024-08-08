@@ -16,7 +16,15 @@ export default function MainSection() {
 
     return (
         <section className="main-section">
-            <img className="card" src="/images/tabernacle-ph.png"></img>
+			<article className="card-area">
+				<img className="card" src="/images/tabernacle-ph.png"></img>
+				<div className="hidden-area">
+					<div className="square"></div>
+					<div className="square"></div>
+					<div className="square"></div>
+					<div className="square"></div>
+				</div>
+			</article>
             <input className="search-bar" type="search" placeholder="Search Card..."></input>
             <div className="player-section">
                 <img className="profile-picture" src="/images/sarkhan-ph.png"></img>
@@ -26,7 +34,7 @@ export default function MainSection() {
                 showLostGameModal && (<p className="game-over">DEFEAT</p>)
             }
 
-            <button className="life-test" onClick={guessCard}></button>
+            <button className="life-test" onClick={guessCard}>Guess</button>
         </section>
     );
 }
