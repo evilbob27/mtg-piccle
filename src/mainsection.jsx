@@ -4,8 +4,8 @@ import Square from "./square";
 export default function MainSection() {
     const [life, setLife] = useState(20);
     const [showLostGameModal, setShowLostGameModal] = useState(false);
-    const [squareGrid, setSquareGrid] = useState(Array.from({ length: 24 }, (_, index) => (
-        <Square key={index} showCard={false}/>
+    const [squareGrid, setSquareGrid] = useState(Array.from({ length: 28 }, (_, index) => (
+        <Square key={index} showCard={false} />
     )));
 
     const guessCard = () => {
@@ -20,28 +20,28 @@ export default function MainSection() {
 
         const newSquareGrid = [...squareGrid];
         for (let i = 0; i < 4; i++) {
-            const unrevealedSquares = newSquareGrid.filter((square) => square.props.showCard === false);
+            const unrevealedSquares = newSquareGrid.filter((square) => square.props.showCard === false && square.key > 3);
             const unrevealedSquareIndex = unrevealedSquares[Math.floor(Math.random() * unrevealedSquares.length)].key;
-            newSquareGrid[unrevealedSquareIndex] = <Square key={unrevealedSquareIndex} showCard={true}/>;
+            newSquareGrid[unrevealedSquareIndex] = <Square key={unrevealedSquareIndex} showCard={true} />;
 
             if (unrevealedSquares.length === 5) {
-                unrevealedSquares.forEach((square) => {
-                    newSquareGrid[square.key] = <Square key={square.key} showCard={true}/>;
-                });
+                revealAllSquares();
             }
         }
         setSquareGrid(newSquareGrid);
     };
+
+    function revealAllSquares() {
+        squareGrid.forEach((square) => {
+            newSquareGrid[square.key] = <Square key={square.key} showCard={true} />;
+        });
+    }
 
     return (
         <section className="main-section">
             <article className="card-area">
                 <img className="card" src="/images/tabernacle-ph.png"></img>
                 <div className="hidden-area">
-                    <Square/>
-                    <Square/>
-                    <Square/>
-                    <Square/>
                     {squareGrid}
                 </div>
             </article>
@@ -53,7 +53,6 @@ export default function MainSection() {
             {
                 showLostGameModal && (<p className="game-over">DEFEAT</p>)
             }
-
             <button className="life-test" onClick={guessCard}>Guess</button>
         </section>
     );
