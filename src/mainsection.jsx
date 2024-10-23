@@ -40,6 +40,12 @@ useEffect(() => {
     generateGrid();
 }, [hiddenSquares]);
 
+useEffect(() => {
+    if (showLostGameModal) {
+        setGrid([]);
+    }
+}, [showLostGameModal]);
+
 return (
     <section className="main-section">
         <article className="card-area">
@@ -64,4 +70,4 @@ return (
         <button className="life-test" onClick={guessCard}>Guess</button>
     </section>
 );
-};
+}

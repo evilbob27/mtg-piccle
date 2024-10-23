@@ -1,4 +1,5 @@
 $darkgrey: #444444;
+$darkred: #C40F01;
 $grey: #c2c2c2;
 $lightblack: #232323;
 $grey-border: 1px solid grey;
@@ -70,126 +71,6 @@ h1 {
                         transition: opacity 1s;
                         opacity: 0;
                       }
-
-                    &:nth-child(1) {
-                        grid-column: 2 / 3;
-                        grid-row: 2 / 3;
-                    }
-
-                    &:nth-child(2) {
-                        grid-column: 3 / 4;
-                        grid-row: 2 / 3;
-                    }
-
-                    &:nth-child(3) {
-                        grid-column: 4 / 5;
-                        grid-row: 2 / 3;
-                    }
-
-                    &:nth-child(4) {
-                        grid-column: 5 / 6;
-                        grid-row: 2 / 3;
-                    }
-
-                    &:nth-child(5) {
-                        grid-column: 6 / 7;
-                        grid-row: 2 / 3;
-                    }
-
-                    &:nth-child(6) {
-                        grid-column: 7 / 8;
-                        grid-row: 2 / 3;
-                    }
-
-                    &:nth-child(7) {
-                        grid-column: 2 / 3;
-                        grid-row: 3 / 4;
-                    }
-
-                    &:nth-child(8) {
-                        grid-column: 3 / 4;
-                        grid-row: 3 / 4;
-                    }
-
-                    &:nth-child(9) {
-                        grid-column: 4 / 5;
-                        grid-row: 3 / 4;
-                    }
-
-                    &:nth-child(10) {
-                        grid-column: 5 / 6;
-                        grid-row: 3 / 4;
-                    }
-
-                    &:nth-child(11) {
-                        grid-column: 6 / 7;
-                        grid-row: 3 / 4;
-                    }
-
-                    &:nth-child(12) {
-                        grid-column: 7 / 8;
-                        grid-row: 3 / 4;
-                    }
-
-                    &:nth-child(13) {
-                        grid-column: 2 / 3;
-                        grid-row: 4 / 5;
-                    }
-
-                    &:nth-child(14) {
-                        grid-column: 3 / 4;
-                        grid-row: 4 / 5;
-                    }
-
-                    &:nth-child(15) {
-                        grid-column: 4 / 5;
-                        grid-row: 4 / 5;
-                    }
-
-                    &:nth-child(16) {
-                        grid-column: 5 / 6;
-                        grid-row: 4 / 5;
-                    }
-
-                    &:nth-child(17) {
-                        grid-column: 6 / 7;
-                        grid-row: 4 / 5;
-                    }
-
-                    &:nth-child(18) {
-                        grid-column: 7 / 8;
-                        grid-row: 4 / 5;
-                    }
-
-                    &:nth-child(19) {
-                        grid-column: 2 / 3;
-                        grid-row: 5 / 6;
-                    }
-
-                    &:nth-child(20) {
-                        grid-column: 3 / 4;
-                        grid-row: 5 / 6;
-                    }
-
-                    &:nth-child(21) {
-                        grid-column: 4 / 5;
-                        grid-row: 5 / 6;
-                    }
-
-                    &:nth-child(22) {
-                        grid-column: 5 / 6;
-                        grid-row: 5 / 6;
-                    }
-
-                    &:nth-child(23) {
-                        grid-column: 6 / 7;
-                        grid-row: 5 / 6;
-                    }
-
-                    &:nth-child(24) {
-                        grid-column: 7 / 8;
-                        grid-row: 5 / 6;
-                    }
                 }
 
                 &:first-child {
@@ -218,11 +99,6 @@ h1 {
                 &:nth-child(4) {
                     border-radius: 0 0 1.5rem 1.5rem;
                     grid-row: 6 / span 5;
-                }
-
-                &:nth-child(5) {
-                    grid-column-start: 2;
-                    grid-row-start: 2;
                 }
             }
         }
@@ -262,7 +138,7 @@ h1 {
 
 .game-over {
     background-color: $lightblack;
-    color: red;
+    color: $darkred;
     font-size: $font-xl;
     position: absolute;
 }
