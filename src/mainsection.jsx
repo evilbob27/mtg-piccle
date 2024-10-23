@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import Square from "./square";
 
 export default function MainSection() {
     const [life, setLife] = useState(20);
     const [showLostGameModal, setShowLostGameModal] = useState(false);
-    const [grid, setGrid] = useState([]);
-    const [hiddenSquares, setHiddenSquares] = useState([]);
+    const [squareGrid, setSquareGrid] = useState(Array.from({ length: 24 }, (_, index) => (
+        <Square key={index} showCard={false}/>
+    )));
 
     const guessCard = () => {
         setLife(life => {
@@ -16,58 +18,43 @@ export default function MainSection() {
             return newLife;
         });
 
-        const newHiddenSquares = [...hiddenSquares];
+        const newSquareGrid = [...squareGrid];
         for (let i = 0; i < 4; i++) {
-            let randomIndex;
-            do {
-                randomIndex = Math.floor(Math.random() * 24);
-            } while (newHiddenSquares.includes(randomIndex));
-            newHiddenSquares.push(randomIndex);
-        }
+            const unrevealedSquares = newSquareGrid.filter((square) => square.props.showCard === false);
+            const unrevealedSquareIndex = unrevealedSquares[Math.floor(Math.random() * unrevealedSquares.length)].key;
+            newSquareGrid[unrevealedSquareIndex] = <Square key={unrevealedSquareIndex} showCard={true}/>;
 
-        setHiddenSquares(newHiddenSquares);
+            if (unrevealedSquares.length === 5) {
+                unrevealedSquares.forEach((square) => {
+                    newSquareGrid[square.key] = <Square key={square.key} showCard={true}/>;
+                });
+            }
+        }
+        setSquareGrid(newSquareGrid);
     };
 
-useEffect(() => {
-    const generateGrid = () => {
-        const newGrid = [];
-        for (let i = 0; i < 24; i++) {
-            newGrid.push(<div key={i} className={`square overlay-square ${hiddenSquares.includes(i) ? `active` : ``}`}></div>);
-        }
-        setGrid(newGrid);
-    };
-
-    generateGrid();
-}, [hiddenSquares]);
-
-useEffect(() => {
-    if (showLostGameModal) {
-        setGrid([]);
-    }
-}, [showLostGameModal]);
-
-return (
-    <section className="main-section">
-        <article className="card-area">
-            <img className="card" src="/images/tabernacle-ph.png"></img>
-            <div className="hidden-area">
-                <div className="square"></div>
-                <div className="square"></div>
-                <div className="square"></div>
-                <div className="square"></div>
-                {grid}
+    return (
+        <section className="main-section">
+            <article className="card-area">
+                <img className="card" src="/images/tabernacle-ph.png"></img>
+                <div className="hidden-area">
+                    <Square/>
+                    <Square/>
+                    <Square/>
+                    <Square/>
+                    {squareGrid}
+                </div>
+            </article>
+            <input className="search-bar" type="search" placeholder="Search Card..."></input>
+            <div className="player-section">
+                <img className="profile-picture" src="/images/sarkhan-ph.png"></img>
+                <p className="life-counter">{life}</p>
             </div>
-        </article>
-        <input className="search-bar" type="search" placeholder="Search Card..."></input>
-        <div className="player-section">
-            <img className="profile-picture" src="/images/sarkhan-ph.png"></img>
-            <p className="life-counter">{life}</p>
-        </div>
-        {
-            showLostGameModal && (<p className="game-over">DEFEAT</p>)
-        }
+            {
+                showLostGameModal && (<p className="game-over">DEFEAT</p>)
+            }
 
-        <button className="life-test" onClick={guessCard}>Guess</button>
-    </section>
-);
+            <button className="life-test" onClick={guessCard}>Guess</button>
+        </section>
+    );
 }

@@ -62,15 +62,9 @@ h1 {
             .square {
                 background-color: $lightblack;
 
-                &.overlay-square {
-                    grid-column: span 1;
-                    grid-row: span 1;
-                    opacity: 1;
-                    
-                    &.active {
-                        transition: opacity 1s;
-                        opacity: 0;
-                      }
+                &.active {
+                    transition: opacity 1s;
+                    opacity: 0;
                 }
 
                 &:first-child {
