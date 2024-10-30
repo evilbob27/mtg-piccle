@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Square from "./square";
 
 export default function MainSection() {
@@ -24,18 +24,18 @@ export default function MainSection() {
             const unrevealedSquareIndex = unrevealedSquares[Math.floor(Math.random() * unrevealedSquares.length)].key;
             newSquareGrid[unrevealedSquareIndex] = <Square key={unrevealedSquareIndex} showCard={true} />;
 
+            /*
+             * When all the guesses have been submitted this triggers to reveal
+             * all the remaining squares in the squareGrid in state.
+             */
             if (unrevealedSquares.length === 5) {
-                revealAllSquares();
+                squareGrid.forEach((square) => {
+                    newSquareGrid[square.key] = <Square key={square.key} showCard={true} />;
+                });
             }
         }
-        setSquareGrid(newSquareGrid);
+        setSquareGrid(newSquareGrid); 
     };
-
-    function revealAllSquares() {
-        squareGrid.forEach((square) => {
-            newSquareGrid[square.key] = <Square key={square.key} showCard={true} />;
-        });
-    }
 
     return (
         <section className="main-section">
