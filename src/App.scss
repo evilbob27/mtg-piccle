@@ -1,23 +1,10 @@
-$darkgrey: #444444;
-$darkred: #C40F01;
-$grey: #c2c2c2;
-$lightblack: #232323;
-$grey-border: 1px solid grey;
-$font-l: 3rem;
-$font-m: 2.5rem;
-$font-xl: 4rem;
-
-@font-face {
-    font-family: "Beleren";
-    src: url("/fonts/Beleren-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-}
+@import './styles/colors.scss';
+@import './styles/fonts.scss';
 
 body {
-    background: url("/images/grey-patterned-bg.jpg");
+    background: url('/images/grey-patterned-bg.jpg');
     color: whitesmoke;
-    font-family: "Beleren", sans-serif;
+    font-family: 'Beleren', sans-serif;
     font-weight: bold;
     margin: 0rem;
 }
@@ -58,50 +45,13 @@ h1 {
             bottom: 0;
             top: 0;
             right: 0;
-
-            .square {
-                background-color: $lightblack;
-
-                &.active {
-                    transition: opacity 1s;
-                    opacity: 0;
-                }
-
-                &:first-child {
-                    border-radius: 1.5rem 1.5rem 0 0;
-                }
-
-                &:first-child,
-                &:nth-child(4) {
-                    grid-column: 1 / span 8;
-                    grid-row: 1;
-                }
-
-                &:nth-child(2) {
-                    grid-column: 1;
-                }
-
-                &:nth-child(2),
-                &:nth-child(3) {
-                    grid-row: 2 / span 4;
-                }
-
-                &:nth-child(3) {
-                    grid-column: 8;
-                }
-
-                &:nth-child(4) {
-                    border-radius: 0 0 1.5rem 1.5rem;
-                    grid-row: 6 / span 5;
-                }
-            }
         }
     }
 
     .search-bar {
         background-color: $grey;
         color: $lightblack;
-        font-family: "Beleren", sans-serif;
+        font-family: 'Beleren', sans-serif;
         height: 2rem;
         margin-bottom: -0.75rem;
         /* TODO: change to use padding */
@@ -128,11 +78,4 @@ h1 {
             text-align: center;
         }
     }
-}
-
-.game-over {
-    background-color: $lightblack;
-    color: $darkred;
-    font-size: $font-xl;
-    position: absolute;
 }

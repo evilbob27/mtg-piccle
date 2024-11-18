@@ -1,5 +1,6 @@
-import { useState } from "react";
-import Square from "./square";
+import { useState } from 'react';
+import Square from './components/Square';
+import Modal from './components/Modal';
 
 export default function MainSection() {
     const [life, setLife] = useState(20);
@@ -34,26 +35,33 @@ export default function MainSection() {
                 });
             }
         }
-        setSquareGrid(newSquareGrid); 
+        setSquareGrid(newSquareGrid);
     };
 
     return (
-        <section className="main-section">
-            <article className="card-area">
-                <img className="card" src="/images/tabernacle-ph.png"></img>
-                <div className="hidden-area">
+        <section className='main-section'>
+            <article className='card-area'>
+                <img className='card' src='/images/tabernacle-ph.png'></img>
+                <div className='hidden-area'>
                     {squareGrid}
                 </div>
             </article>
-            <input className="search-bar" type="search" placeholder="Search Card..."></input>
-            <div className="player-section">
-                <img className="profile-picture" src="/images/sarkhan-ph.png"></img>
-                <p className="life-counter">{life}</p>
+            <input className='search-bar' type='search' placeholder='Search Card...'></input>
+            <div className='player-section'>
+                <img className='profile-picture' src='/images/sarkhan-ph.png'></img>
+                <p className='life-counter'>{life}</p>
             </div>
-            {
-                showLostGameModal && (<p className="game-over">DEFEAT</p>)
-            }
-            <button className="life-test" onClick={guessCard}>Guess</button>
+            {/* 
+                if showLostGameModal true
+                <modal>
+
+                <Modal>
+                    if showLostGameModal
+                    open
+                </Modal>
+            */}
+            <Modal showGameModal={showLostGameModal} onReturnButtonClick={() => setShowLostGameModal(false)}/>
+            <button className='life-test' onClick={guessCard}>Guess</button>
         </section>
     );
 }
